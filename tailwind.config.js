@@ -21,6 +21,7 @@ module.exports = {
         sans: ["var(--font-family)"],
         montserrat: ["var(--font-montserrat)"],
         arial: ["Roboto", "sans-serif"],
+        figtree: ["Figtree", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

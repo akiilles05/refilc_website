@@ -76,18 +76,18 @@
   }
   .h1 {
     font-family: "Montserrat", sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     font-style: normal;
     font-size: 2rem;
   }
   .title {
     font-family: "Montserrat", sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     font-style: normal;
-    font-size: 4.5rem;
+    font-size: 5rem;
   }
 
-  .app {
-    
+  .download-button {
+    padding: 12px, 16px, 12px, 16px;
   }
 }

@@ -1,4 +1,5 @@
 import "./globals.css";
+import "./style.scss";
 
 export const metadata = {
   title: "reFilc",
