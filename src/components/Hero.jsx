@@ -6,18 +6,42 @@ import { Button } from "./ui/button";
 
 const Hero = () => {
   const { scrollY } = useViewportScroll();
-  const scale = useTransform(scrollY, [0, 500], [1, 0.4]);
+
+  // Responsive scale based on viewport width
+  const screenWidth = useViewportScroll(({ viewport }) => viewport.width);
+  const scale = useTransform(
+    scrollY,
+    [0, 500],
+    screenWidth > 768 ? [1, 0.8] : [1, 0.4] // Adjust breakpoints as needed
+  );
+
   const [showText, setShowText] = useState(false);
 
   useEffect(() => {
-    scrollY.onChange((value) => {
-      if (value >= 900) {
-        setShowText(true);
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        // Mobil nézet
+        if (scrollTop >= 600) {
+          setShowText(true);
+        } else {
+          setShowText(false);
+        }
       } else {
-        setShowText(false);
+        // Asztali nézet
+        if (scrollTop >= 900) {
+          setShowText(true);
+        } else {
+          setShowText(false);
+        }
       }
-    });
-  }, [scrollY]);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="flex flex-col justify-center items-center text-center pt-[12rem]">
@@ -25,7 +49,7 @@ const Hero = () => {
       <p className="flex bg-secondary font-medium rounded-[40px] py-2 px-4 leading-5 h-[45px] w-[276px] font-figtree items-center justify-center">
         40+ milliárd forintért nem sikerült
       </p>
-      <h1 className="title w-[37.5rem] text-[#050B15] items-center flex flex-col">
+      <h1 className="title text-[#050B15] items-center flex flex-col">
         Kell egy jobb{" "}
         <div className="flex flex-row items-baseline">
           eKréta{" "}
@@ -51,7 +75,7 @@ const Hero = () => {
           <motion.div style={{ scale }}>
             <Image
               src="/mockup/mockup2.svg"
-              width={810}
+              width={810} // Adjust image width as needed for smaller screens
               height={600}
               alt="mockup"
             />
@@ -63,7 +87,7 @@ const Hero = () => {
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="absolute gap-[10px] flex flex-col text-left w-25 z-10 xl:mt-[30%] xl:ml-[60%] "
+          className="relative xl:absolute gap-[10px] flex flex-col text-center items-center xl:text-left w-25 mt-[-55%]  xl:mt-[30%] xl:ml-[60%] "
         >
           <Image
             src="/icon/home.svg"
