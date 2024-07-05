@@ -38,7 +38,7 @@ const Hero = () => {
           />
         </div>
       </h1>
-      <p className="text-center w-[36rem] font-medium text-[18px] font-figtree">
+      <p className="text-center xl:w-[36rem] w-[90%] font-medium text-[18px] font-figtree">
         A reFilc folytatja, amit a Filc Napló és a Szivacs Napló elkezdett: egy
         diákoknak elkészült eKréta kliens, ami szép és hasznos is.
       </p>
@@ -57,28 +57,28 @@ const Hero = () => {
             />
           </motion.div>
         </div>
-        {showText && (
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="gap-[10px] flex flex-col text-left w-25"
-          >
-            <Image
-              src="/icon/home.svg"
-              alt="home"
-              width={42}
-              height={42}
-              className="rounded-[12px]"
-            />
-            <h1 className="h1">Ez a te kis otthonod</h1>
-            <p className="font-figtree text-[18px] font-medium ">
-              A nap nézetben mindent megtalálsz, amire szükséged van iskola
-              előtt, közben, és után.
-            </p>
-          </motion.div>
-        )}
       </div>
+      {showText && (
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="absolute gap-[10px] flex flex-col text-left w-25 z-10 xl:mt-[30%] xl:ml-[60%] "
+        >
+          <Image
+            src="/icon/home.svg"
+            alt="home"
+            width={42}
+            height={42}
+            className="rounded-[12px]"
+          />
+          <h1 className="h1">Ez a te kis otthonod</h1>
+          <p className="font-figtree text-[18px] font-medium ">
+            A nap nézetben mindent megtalálsz, amire szükséged van iskola előtt,
+            közben, és után.
+          </p>
+        </motion.div>
+      )}
     </div>
   );
 };

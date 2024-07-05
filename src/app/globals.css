@@ -84,7 +84,7 @@
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-style: normal;
-    font-size: 5rem;
+    @apply xl:text-[5rem] text-[4.0rem];
   }
 
   .download-button {

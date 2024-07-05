@@ -1,17 +1,26 @@
+"use client";
+import { motion, useTransform, useViewportScroll } from "framer-motion";
 import Image from "next/image";
-import { FaWifi, FaSignal } from "react-icons/fa";
-import { IoIosBatteryFull } from "react-icons/io";
+import { useEffect, useState } from "react";
+import { Button } from "./ui/button";
 
 const Main = () => {
+  const { scrollY } = useViewportScroll();
+  const y = useTransform(scrollY, [0, 1], [0, -100]);
+
   return (
-    <div className="flex justify-center items-center pt-40 ">
-      <div className="image_carousel">
-        <Image
-          src="/mockup/mockup1.svg"
-          width={900}
-          height={600}
-          alt="mockup"
-        />
+    <div>
+      <div className="flex flex-col xl:flex-row items-center justify-center gap-[120px]">
+        <div className=" pt-[6rem] flex items-center justify-center">
+          <motion.div style={{ y }}>
+            <Image
+              src="/mockup/tantargyak.svg"
+              width={340}
+              height={810}
+              alt="mockup"
+            />
+          </motion.div>
+        </div>
       </div>
     </div>
   );
