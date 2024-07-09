@@ -71,6 +71,9 @@
 }
 
 @layer base {
+  html {
+    @apply max-w-full;
+  }
   * {
     @apply border-border;
   }

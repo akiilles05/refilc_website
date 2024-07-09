@@ -44,7 +44,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center text-center pt-[12rem]">
+    <div className="flex flex-col justify-center items-center text-center pt-[9rem] xl:pt-[12rem]">
       {/* milliard */}
       <p className="flex bg-secondary font-medium rounded-[40px] py-2 px-4 leading-5 h-[45px] w-[276px] font-figtree items-center justify-center">
         40+ milliárd forintért nem sikerült
@@ -87,7 +87,7 @@ const Hero = () => {
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="relative xl:absolute gap-[10px] flex flex-col text-center items-center xl:text-left w-25 mt-[-55%]  xl:mt-[30%] xl:ml-[60%] "
+          className=" xl:absolute gap-[10px] flex flex-col text-left w-25 mt-[-55%]  xl:mt-[30%] xl:ml-[60%] "
         >
           <Image
             src="/icon/home.svg"
