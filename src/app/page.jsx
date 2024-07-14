@@ -4,17 +4,22 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Main from "@/components/Main";
 import Orarend from "@/components/Orarend";
-import Image from "next/image";
+import Premium from "@/components/Premium";
+import Szemelyre from "@/components/Szemelyre";
 
 export default function Home() {
   return (
-    <main>
-      <Header />
-      <Hero />
-      <Main />
-      <Celok />
-      <Orarend />
-      <Fuzet />
-    </main>
+    <div>
+      <div className="w-full">
+        <Header />
+        <Hero />
+        <Main />
+        <Celok />
+        <Orarend />
+        <Fuzet />
+        <Szemelyre />
+        <Premium />
+      </div>
+    </div>
   );
 }

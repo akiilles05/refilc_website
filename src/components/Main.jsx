@@ -1,21 +1,17 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, transform, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
-import { fadeIn } from "../variants";
 const Main = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
   return (
-    <div>
-      <div className="flex flex-col xl:flex-row items-center justify-center gap-[120px]">
+    <div className="overflow-x-hidden mt-10 xl:mt-[-25%]">
+      <div className="flex flex-col xl:flex-row items-center justify-center">
         <motion.div
-          initial={{ opacity: 0, transform: "translateX(-200px)" }}
-          whileInView={{ opacity: 1, transform: "translateX(0)" }}
-          transition={{ duration: 0.5, type: "fade" }}
-          className=" xl:absolute gap-[10px] flex flex-col  w-25 mr-[60%]"
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, type: "tween" }}
+          className=" xl:absolute gap-[10px] flex flex-col items-center text-center xl:text-left xl:items-start w-25 xl:mr-[60%]"
         >
           <Image
             src="/icon/bookmark.svg"
@@ -34,11 +30,11 @@ const Main = () => {
           <motion.div
             initial={{
               opacity: 0,
-              transform: "translateX(200px)",
+              x: 100,
             }}
-            whileInView={{ opacity: 1, transform: "translateX(0)" }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, type: "tween" }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
             <Image
               src="/mockup/tantargyak.svg"
